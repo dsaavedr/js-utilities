@@ -29,7 +29,7 @@ class Particle {
             var vel = Vector.random().mult(random(-5, 5));
             this.children.push(new Particle(temp,
                 vel,
-                this.c, 2));
+                this.c, random(1.5, 2.5)));
         }
     }
 }
