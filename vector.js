@@ -1,4 +1,4 @@
-// Adaptation of the vector object from the p5.js library, 2D for now
+// Adaptation of the vector object from the p5.js library, 2D for now.
 
 class Vector {
     constructor(x = 0, y = 0) {
