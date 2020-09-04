@@ -23,6 +23,18 @@ class Particle {
         point(this.pos.x, this.pos.y, this.c, this.r);
     }
 
+    borders() {
+        if (this.pos.x >= WIDTH) {
+            this.pos.x = 0;
+        } else if (this.pos.x <= 0) {
+            this.pos.x = WIDTH;
+        } else if (this.pos.y >= HEIGHT) {
+            this.pos.y = 0;
+        } else if (this.pos.y <= 0) {
+            this.pos.y = HEIGHT;
+        }
+    }
+
     explode(n) {
         for (var i = 0; i < n; i++) {
             var temp = this.pos.copy();
