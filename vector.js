@@ -15,6 +15,10 @@ class Vector {
     set(x, y) {
         this.x = x;
         this.y = y;
+
+        this.mag();
+        this.heading();
+
         return this;
     }
 
@@ -31,6 +35,10 @@ class Vector {
             this.x += v0;
             this.y += v1;
         }
+
+        this.mag();
+        this.heading();
+
         return this;
     }
 
@@ -47,6 +55,10 @@ class Vector {
             this.x -= v0;
             this.y -= v1;
         }
+
+        this.mag();
+        this.heading();
+
         return this;
     }
 
@@ -59,28 +71,39 @@ class Vector {
             this.y *= e;
         }
 
+        this.mag();
+        this.heading();
+
         return this;
     }
 
     div(e) {
         if (typeof e === 'object') {
-            this.x /= e.x;
-            this.y /= e.y;
+            this.x = this.x / e.x;
+            this.y = this.y / e.y;
         } else {
-            this.x /= e;
-            this.y /= e;
+            this.x = this.x / e;
+            this.y = this.y / e;
         }
+
+        this.mag();
+        this.heading();
 
         return this;
     }
 
     static dist(v1, v2) {
-        return Math.sqrt(Math.pow((v1.x - v2.x), 2) + Math.pow((v2.x - v2.y), 2));
+        var d = Math.sqrt(Math.pow((v1.x - v2.x), 2) + Math.pow((v2.x - v2.y), 2));
+
+        return d;
     }
 
     mag() {
         var i = Math.pow(this.x, 2) + Math.pow(this.y, 2);
-        return Math.sqrt(i);
+
+        this.m = Math.sqrt(i);
+
+        return this.m;
     }
 
     setMag(m) {
@@ -90,7 +113,9 @@ class Vector {
     }
 
     heading() {
-        return Math.atan2(this.x, this.y);
+        this.dir = Math.atan2(this.x, this.y);
+
+        return this.dir;
     }
 
     static random() {
@@ -108,5 +133,11 @@ class Vector {
         var y = Math.sin(a);
 
         return new Vector(x, y);
+    }
+
+    limit(max) {
+        if (this.m > max) {
+            this.setMag(max);
+        }
     }
 }
