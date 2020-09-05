@@ -6,7 +6,9 @@ class Particle {
         this.r = r;
         this.children = [];
         this.exploded = false;
-        this.c = c;
+        this.c = c,
+        this.maxSpeed = 4,
+        this.maxForce = 1;
     }
 
     applyForce(force) {
@@ -14,8 +16,9 @@ class Particle {
     }
 
     update() {
-        this.vel.add(this.acc);
         this.pos.add(this.vel);
+        this.vel.add(this.acc);
+        this.vel.limit(this.maxSpeed);
         this.acc = new Vector(0, 0);
     }
 
@@ -24,13 +27,13 @@ class Particle {
     }
 
     borders() {
-        if (this.pos.x >= WIDTH) {
+        if (this.pos.x > WIDTH) {
             this.pos.x = 0;
-        } else if (this.pos.x <= 0) {
+        } else if (this.pos.x < 0) {
             this.pos.x = WIDTH;
-        } else if (this.pos.y >= HEIGHT) {
+        } else if (this.pos.y > HEIGHT) {
             this.pos.y = 0;
-        } else if (this.pos.y <= 0) {
+        } else if (this.pos.y < 0) {
             this.pos.y = HEIGHT;
         }
     }
