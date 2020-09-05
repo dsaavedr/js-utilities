@@ -21,7 +21,7 @@ function rad2Ang(r) {
     return r * 180/Math.PI;
 }
 
-function random(min = 0, max = 1) {
+function random(max = 1, min = 0) {
     return Math.random() * (max - min) + min;
 }
 
