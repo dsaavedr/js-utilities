@@ -113,7 +113,7 @@ class Vector {
     }
 
     heading() {
-        this.dir = Math.atan2(this.x, this.y);
+        this.dir = Math.atan2(this.y, this.x);
 
         return this.dir;
     }
