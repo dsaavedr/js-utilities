@@ -7,8 +7,8 @@ class Particle {
         this.children = [];
         this.exploded = false;
         this.c = c,
-        this.maxSpeed = 4,
-        this.maxForce = 1;
+            this.maxSpeed = 4,
+            this.maxForce = 1;
     }
 
     applyForce(force) {
