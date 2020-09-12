@@ -6,7 +6,7 @@ function scale(num, in_min, in_max, out_min, out_max) {
     return (num - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }
 
-function point(x, y, c = 'white', r = 2){
+function point(x, y, c = 'white', r = 2) {
     ctx.save();
     ctx.beginPath();
     ctx.arc(x, y, r, 0, 2 * Math.PI, true);
@@ -18,10 +18,14 @@ function point(x, y, c = 'white', r = 2){
 }
 
 function rad2Ang(r) {
-    return r * 180/Math.PI;
+    return r * 180 / Math.PI;
 }
 
-function random(max = 1, min = 0) {
+function random(min = 0, max = 1) {
+    if (arguments.length === 1) {
+        return Math.random() * min;
+    }
+
     return Math.random() * (max - min) + min;
 }
 
@@ -52,7 +56,7 @@ function ctg(x) {
 }
 
 function IX(x, y) {
-  return x + y * N;
+    return x + y * N;
 }
 
 function constrain(n, min, max) {
