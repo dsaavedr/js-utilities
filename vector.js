@@ -110,6 +110,8 @@ class Vector {
         this.m = m;
         this.x = Math.cos(this.dir) * m;
         this.y = Math.sin(this.dir) * m;
+
+        return this;
     }
 
     heading() {
