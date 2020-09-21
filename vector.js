@@ -1,5 +1,7 @@
 // Adaptation of the vector object from the p5.js library, 2D for now.
 
+// TODO: comparing two identical vector objects always returns false, probably because of dir or mag calculation.
+
 class Vector {
     constructor(x = 0, y = 0) {
         this.x = x;
