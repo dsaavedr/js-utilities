@@ -17,13 +17,30 @@ function point(x, y, c = 'white', r = 2) {
     ctx.restore();
 }
 
+function rect(x, y, w, h, stroke = false, fill = true, c = "white") {
+    ctx.beginPath();
+    ctx.rect(x, y, w, h);
+    if (fill) {
+        ctx.save();
+        ctx.fillStyle = c;
+        ctx.fill();
+        ctx.restore();
+    }
+    if (stroke) { ctx.stroke() }
+    ctx.closePath();
+}
+
 function rad2Ang(r) {
     return r * 180 / Math.PI;
 }
 
 function random(min = 0, max = 1) {
     if (arguments.length === 1) {
-        return Math.random() * min;
+        if (min != 0) {
+            return Math.random() * min;
+        } else {
+            return Math.random();
+        }
     }
 
     return Math.random() * (max - min) + min;
