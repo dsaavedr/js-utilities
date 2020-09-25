@@ -46,6 +46,10 @@ function random(min = 0, max = 1) {
     return Math.random() * (max - min) + min;
 }
 
+function rgb(r, g, b, a = 1) {
+    return "rgb(" + r + ", " + g + ", " + b + ")";
+}
+
 function HSVtoRGB(h, s, v) {
     var r, g, b, i, f, p, q, t;
     if (arguments.length === 1) {
