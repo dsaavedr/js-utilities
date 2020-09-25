@@ -47,7 +47,7 @@ function random(min = 0, max = 1) {
 }
 
 function rgb(r, g, b, a = 1) {
-    return "rgb(" + r + ", " + g + ", " + b + ")";
+    return "rgba(" + r + ", " + g + ", " + b + ", " + a + ")";
 }
 
 function HSVtoRGB(h, s, v) {
