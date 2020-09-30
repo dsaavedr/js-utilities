@@ -1,4 +1,6 @@
-// Adaptation of the vector object from the p5.js library, 2D for now
+// Adaptation of the vector object from the p5.js library, 2D for now.
+
+// TODO: comparing two identical vector objects always returns false, probably because of dir or mag calculation.
 
 class Vector {
     constructor(x = 0, y = 0) {
@@ -15,6 +17,10 @@ class Vector {
     set(x, y) {
         this.x = x;
         this.y = y;
+
+        this.mag();
+        this.heading();
+
         return this;
     }
 
@@ -31,6 +37,10 @@ class Vector {
             this.x += v0;
             this.y += v1;
         }
+
+        this.mag();
+        this.heading();
+
         return this;
     }
 
@@ -47,6 +57,10 @@ class Vector {
             this.x -= v0;
             this.y -= v1;
         }
+
+        this.mag();
+        this.heading();
+
         return this;
     }
 
@@ -59,38 +73,59 @@ class Vector {
             this.y *= e;
         }
 
+        this.mag();
+        this.heading();
+
         return this;
     }
 
     div(e) {
+<<<<<<< HEAD
         if (v0 instanceof Vector) {
             this.x /= e.x;
             this.y /= e.y;
+=======
+        if (typeof e === 'object') {
+            this.x = this.x / e.x;
+            this.y = this.y / e.y;
+>>>>>>> 64d5e9f3da3b0d257e8da6348685a471e2815b32
         } else {
-            this.x /= e;
-            this.y /= e;
+            this.x = this.x / e;
+            this.y = this.y / e;
         }
+
+        this.mag();
+        this.heading();
 
         return this;
     }
 
     static dist(v1, v2) {
-        return Math.sqrt(Math.pow((v1.x - v2.x), 2) + Math.pow((v2.x - v2.y), 2));
+        var d = Math.sqrt(Math.pow((v1.x - v2.x), 2) + Math.pow((v2.x - v2.y), 2));
+
+        return d;
     }
 
     mag() {
         var i = Math.pow(this.x, 2) + Math.pow(this.y, 2);
-        return Math.sqrt(i);
+
+        this.m = Math.sqrt(i);
+
+        return this.m;
     }
 
     setMag(m) {
         this.m = m;
         this.x = Math.cos(this.dir) * m;
         this.y = Math.sin(this.dir) * m;
+
+        return this;
     }
 
     heading() {
-        return Math.atan2(this.x, this.y);
+        this.dir = Math.atan2(this.y, this.x);
+
+        return this.dir;
     }
 
     static random() {
@@ -108,5 +143,11 @@ class Vector {
         var y = Math.sin(a);
 
         return new Vector(x, y);
+    }
+
+    limit(max) {
+        if (this.m > max) {
+            this.setMag(max);
+        }
     }
 }
