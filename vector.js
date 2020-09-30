@@ -80,15 +80,9 @@ class Vector {
     }
 
     div(e) {
-<<<<<<< HEAD
         if (v0 instanceof Vector) {
             this.x /= e.x;
             this.y /= e.y;
-=======
-        if (typeof e === 'object') {
-            this.x = this.x / e.x;
-            this.y = this.y / e.y;
->>>>>>> 64d5e9f3da3b0d257e8da6348685a471e2815b32
         } else {
             this.x = this.x / e;
             this.y = this.y / e;
