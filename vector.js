@@ -24,7 +24,7 @@ class Vector {
     }
 
     add(v0, v1 = null) {
-        if (typeof v0 === 'object') {
+        if (v0 instanceof Vector) {
             this.x += v0.x;
             this.y += v0.y;
         } else {
@@ -40,7 +40,7 @@ class Vector {
     }
 
     sub(v0, v1 = null) {
-        if (typeof v0 === 'object') {
+        if (v0 instanceof Vector) {
             this.x -= v0.x;
             this.y -= v0.y;
         } else {
@@ -51,7 +51,7 @@ class Vector {
     }
 
     mult(e) {
-        if (typeof e === 'object') {
+        if (v0 instanceof Vector) {
             this.x *= e.x;
             this.y *= e.y;
         } else {
@@ -63,7 +63,7 @@ class Vector {
     }
 
     div(e) {
-        if (typeof e === 'object') {
+        if (v0 instanceof Vector) {
             this.x /= e.x;
             this.y /= e.y;
         } else {
