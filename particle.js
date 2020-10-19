@@ -26,15 +26,24 @@ class Particle {
         point(this.pos.x, this.pos.y, this.c, this.r);
     }
 
-    borders() {
-        if (this.pos.x > WIDTH) {
-            this.pos.x = 0;
-        } else if (this.pos.x < 0) {
-            this.pos.x = WIDTH;
-        } else if (this.pos.y > HEIGHT) {
-            this.pos.y = 0;
-        } else if (this.pos.y < 0) {
-            this.pos.y = HEIGHT;
+    borders(t = 0) {
+        // t lets you choose between two ways of handling canvas borders
+        if (t == 0) {
+            if (this.pos.x > WIDTH) {
+                this.pos.x = 0;
+            } else if (this.pos.x < 0) {
+                this.pos.x = WIDTH;
+            } else if (this.pos.y > HEIGHT) {
+                this.pos.y = 0;
+            } else if (this.pos.y < 0) {
+                this.pos.y = HEIGHT;
+            }
+        } else {
+            if (this.pos.x > WIDTH | this.pos.x < 0) {
+                this.vel.x = -this.vel.x;
+            } else if (this.pos.y > HEIGHT | this.pos.y < 0) {
+                this.vel.y = -this.vel.y;
+            }
         }
     }
 
