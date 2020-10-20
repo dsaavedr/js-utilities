@@ -1,6 +1,4 @@
 const log = console.log,
-    max = Math.max,
-    min = Math.min,
     PI = Math.PI;
 
 function scale(num, in_min, in_max, out_min, out_max) {
