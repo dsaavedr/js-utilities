@@ -1,4 +1,7 @@
-const log = console.log;
+const log = console.log,
+    max = Math.max,
+    min = Math.min,
+    PI = Math.PI;
 
 function scale(num, in_min, in_max, out_min, out_max) {
     return (num - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
@@ -46,6 +49,38 @@ function random(min = 0, max = 1) {
 
 function rgb(r, g, b, a = 1) {
     return "rgba(" + r + ", " + g + ", " + b + ", " + a + ")";
+}
+
+function RGBtoHSL(r, g, b) {
+    r /= 255;
+    g /= 255;
+    b /= 255;
+
+    let max = Math.max(r, g, b), min = Math.min(r, g, b);
+    var h, s, l = (max + min) / 2;
+
+    if (max == min) {
+        h = s = 0;
+    } else {
+        let d = max - min;
+        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+        switch (max) {
+            case r:
+                h = (g - b) / d + (g < b ? 6 : 0);
+                break;
+            case g:
+                h = (b - r) / d + 2;
+                break;
+            case b:
+                h = (r - g) / d + 4;
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    return [h * 360, s * 100, l * 100];
 }
 
 function HSVtoRGB(h, s, v) {
