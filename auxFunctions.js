@@ -2,10 +2,10 @@ const log = console.log,
     PI = Math.PI;
 
 function scale(num, in_min, in_max, out_min, out_max) {
-    return (num - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+    return ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min;
 }
 
-function point(x, y, c = 'white', r = 2) {
+function point(x, y, c = "white", r = 2) {
     ctx.save();
     ctx.beginPath();
     ctx.arc(x, y, r, 0, 2 * Math.PI, true);
@@ -25,12 +25,17 @@ function rect(x, y, w, h, stroke = false, fill = true, c = "white") {
         ctx.fill();
         ctx.restore();
     }
-    if (stroke) { ctx.stroke() }
+    if (stroke) {
+        ctx.save();
+        ctx.strokeStyle = c;
+        ctx.stroke();
+        ctx.restore();
+    }
     ctx.closePath();
 }
 
 function rad2Ang(r) {
-    return r * 180 / Math.PI;
+    return (r * 180) / Math.PI;
 }
 
 function random(min = 0, max = 1) {
@@ -54,8 +59,11 @@ function RGBtoHSL(r, g, b) {
     g /= 255;
     b /= 255;
 
-    let max = Math.max(r, g, b), min = Math.min(r, g, b);
-    var h, s, l = (max + min) / 2;
+    let max = Math.max(r, g, b),
+        min = Math.min(r, g, b);
+    var h,
+        s,
+        l = (max + min) / 2;
 
     if (max == min) {
         h = s = 0;
@@ -84,7 +92,7 @@ function RGBtoHSL(r, g, b) {
 function HSVtoRGB(h, s, v) {
     var r, g, b, i, f, p, q, t;
     if (arguments.length === 1) {
-        s = h.s, v = h.v, h = h.h;
+        (s = h.s), (v = h.v), (h = h.h);
     }
     i = Math.floor(h * 6);
     f = h * 6 - i;
@@ -92,22 +100,35 @@ function HSVtoRGB(h, s, v) {
     q = v * (1 - f * s);
     t = v * (1 - (1 - f) * s);
     switch (i % 6) {
-        case 0: r = v, g = t, b = p; break;
-        case 1: r = q, g = v, b = p; break;
-        case 2: r = p, g = v, b = t; break;
-        case 3: r = p, g = q, b = v; break;
-        case 4: r = t, g = p, b = v; break;
-        case 5: r = v, g = p, b = q; break;
+        case 0:
+            (r = v), (g = t), (b = p);
+            break;
+        case 1:
+            (r = q), (g = v), (b = p);
+            break;
+        case 2:
+            (r = p), (g = v), (b = t);
+            break;
+        case 3:
+            (r = p), (g = q), (b = v);
+            break;
+        case 4:
+            (r = t), (g = p), (b = v);
+            break;
+        case 5:
+            (r = v), (g = p), (b = q);
+            break;
     }
-    var string = "rgb(" + Math.round(r * 255) + "," + Math.round(g * 255) + "," + Math.round(b * 255) + ")";
-    return string
+    var string =
+        "rgb(" + Math.round(r * 255) + "," + Math.round(g * 255) + "," + Math.round(b * 255) + ")";
+    return string;
 }
 
 function ctg(x) {
     return 1 / Math.tan(x);
 }
 
-function IX(x, y) {
+function IX(x, y, N) {
     return x + y * N;
 }
 
