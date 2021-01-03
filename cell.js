@@ -14,7 +14,7 @@ class Cell {
         if (this.live) {
             ctx.fill();
         }
-        //ctx.stroke();
+        ctx.stroke();
     }
 
     die() {
