@@ -5,7 +5,7 @@ class Cell {
         this.pos = pos;
     }
 
-    draw() {
+    draw(stroke = true) {
         const { x, y } = this.pos;
 
         ctx.beginPath();
@@ -14,7 +14,9 @@ class Cell {
         if (this.live) {
             ctx.fill();
         }
-        ctx.stroke();
+        if (stroke) {
+            ctx.stroke();
+        }
     }
 
     die() {
