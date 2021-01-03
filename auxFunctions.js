@@ -1,5 +1,5 @@
-const log = console.log,
-    PI = Math.PI;
+const { log } = console;
+const { PI, floor } = Math;
 
 function scale(num, in_min, in_max, out_min, out_max) {
     return ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min;
