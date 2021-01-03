@@ -13,6 +13,7 @@ class Cell {
         ctx.closePath();
         if (this.live) {
             ctx.fill();
+            ctx.stroke();
         }
         if (stroke) {
             ctx.stroke();
