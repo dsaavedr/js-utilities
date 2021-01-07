@@ -65,7 +65,7 @@ class Vector {
     }
 
     mult(e) {
-        if (v0 instanceof Vector) {
+        if (e instanceof Vector) {
             this.x *= e.x;
             this.y *= e.y;
         } else {
@@ -80,7 +80,7 @@ class Vector {
     }
 
     div(e) {
-        if (v0 instanceof Vector) {
+        if (e instanceof Vector) {
             this.x /= e.x;
             this.y /= e.y;
         } else {
@@ -95,7 +95,7 @@ class Vector {
     }
 
     static dist(v1, v2) {
-        var d = Math.sqrt(Math.pow((v1.x - v2.x), 2) + Math.pow((v1.y - v2.y), 2));
+        var d = Math.sqrt(Math.pow(v1.x - v2.x, 2) + Math.pow(v1.y - v2.y, 2));
 
         return d;
     }
