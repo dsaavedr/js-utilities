@@ -50,7 +50,7 @@ function random(min = 0, max = 1) {
     return Math.random() * (max - min) + min;
 }
 
-function rgb(r, g, b, a = 1) {
+function rgbString(r, g, b, a = 1) {
     return "rgba(" + r + ", " + g + ", " + b + ", " + a + ")";
 }
 
@@ -122,6 +122,15 @@ function HSVtoRGB(h, s, v) {
     var string =
         "rgb(" + Math.round(r * 255) + "," + Math.round(g * 255) + "," + Math.round(b * 255) + ")";
     return string;
+}
+
+function componentToHex(c) {
+    var hex = c.toString(16);
+    return hex.length == 1 ? "0" + hex : hex;
+}
+
+function rgbToHex(r, g, b) {
+    return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
 }
 
 function ctg(x) {
