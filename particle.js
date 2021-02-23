@@ -1,14 +1,12 @@
 class Particle {
-    constructor(pos, vel, c = 'white', r = 4) {
+    constructor(pos, vel, c = "white", r = 4) {
         this.pos = pos;
         this.acc = new Vector(0, 0);
         this.vel = vel;
         this.r = r;
         this.children = [];
         this.exploded = false;
-        this.c = c,
-            this.maxSpeed = 4,
-            this.maxForce = 1;
+        this.c = c;
     }
 
     applyForce(force) {
@@ -18,7 +16,6 @@ class Particle {
     update() {
         this.pos.add(this.vel);
         this.vel.add(this.acc);
-        this.vel.limit(this.maxSpeed);
         this.acc = new Vector(0, 0);
     }
 
@@ -39,9 +36,9 @@ class Particle {
                 this.pos.y = HEIGHT;
             }
         } else {
-            if (this.pos.x > WIDTH | this.pos.x < 0) {
+            if ((this.pos.x > WIDTH) | (this.pos.x < 0)) {
                 this.vel.x = -this.vel.x;
-            } else if (this.pos.y > HEIGHT | this.pos.y < 0) {
+            } else if ((this.pos.y > HEIGHT) | (this.pos.y < 0)) {
                 this.vel.y = -this.vel.y;
             }
         }
@@ -51,9 +48,7 @@ class Particle {
         for (var i = 0; i < n; i++) {
             var temp = this.pos.copy();
             var vel = Vector.random().mult(random(-5, 5));
-            this.children.push(new Particle(temp,
-                vel,
-                this.c, random(1.5, 2.5)));
+            this.children.push(new Particle(temp, vel, this.c, random(1.5, 2.5)));
         }
     }
 }
