@@ -5,24 +5,6 @@ function scale(num, in_min, in_max, out_min, out_max) {
     return ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min;
 }
 
-function rect(x, y, w, h, stroke = false, fill = true, c = "white") {
-    ctx.beginPath();
-    ctx.rect(x, y, w, h);
-    if (fill) {
-        ctx.save();
-        ctx.fillStyle = c;
-        ctx.fill();
-        ctx.restore();
-    }
-    if (stroke) {
-        ctx.save();
-        ctx.strokeStyle = c;
-        ctx.stroke();
-        ctx.restore();
-    }
-    ctx.closePath();
-}
-
 function rad2Ang(r) {
     return (r * 180) / Math.PI;
 }

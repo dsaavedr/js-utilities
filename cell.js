@@ -1,15 +1,14 @@
-class Cell {
-    constructor(pos, live = true) {
+class Cell extends Rect {
+    constructor(pos, size, live = true) {
+        super(pos, size);
+
         this.live = live;
         this.next = live;
-        this.pos = pos;
     }
 
     draw(stroke = true) {
-        const { x, y } = this.pos;
-
         ctx.beginPath();
-        ctx.rect(x, y, CELL, CELL);
+        ctx.rect(this.pos.x, this.pos.y, this.size.x, this.size.y);
         ctx.closePath();
         if (this.live) {
             ctx.fill();
