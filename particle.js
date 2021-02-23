@@ -1,6 +1,7 @@
-class Particle {
+class Particle extends Point {
     constructor(pos, vel, c = "white", r = 4) {
-        this.pos = pos;
+        super(pos, c, r);
+
         this.acc = new Vector(0, 0);
         this.vel = vel;
         this.r = r;
@@ -20,7 +21,7 @@ class Particle {
     }
 
     show() {
-        point(this.pos.x, this.pos.y, this.c, this.r);
+        this.draw();
     }
 
     borders(t = 0) {

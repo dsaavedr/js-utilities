@@ -5,17 +5,6 @@ function scale(num, in_min, in_max, out_min, out_max) {
     return ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min;
 }
 
-function point(x, y, c = "white", r = 2) {
-    ctx.save();
-    ctx.beginPath();
-    ctx.arc(x, y, r, 0, 2 * Math.PI, true);
-    ctx.fillStyle = c;
-    ctx.fill();
-    //ctx.stroke();
-    ctx.closePath();
-    ctx.restore();
-}
-
 function rect(x, y, w, h, stroke = false, fill = true, c = "white") {
     ctx.beginPath();
     ctx.rect(x, y, w, h);
