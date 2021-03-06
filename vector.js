@@ -60,8 +60,8 @@ class Vector {
     }
 
     sub(s0, s1) {
-        this.x -= v0;
-        this.y -= v1;
+        this.x -= s0;
+        this.y -= s1;
 
         this.mag();
         this.heading();
