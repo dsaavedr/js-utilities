@@ -18,8 +18,7 @@ class Vector {
         this.x = x;
         this.y = y;
 
-        this.mag();
-        this.heading();
+        this.update();
 
         return this;
     }
@@ -33,8 +32,7 @@ class Vector {
         this.x += v0.x;
         this.y += v0.y;
 
-        this.mag();
-        this.heading();
+        this.update();
 
         return this;
     }
@@ -43,8 +41,7 @@ class Vector {
         this.x += s0;
         this.y += s1;
 
-        this.mag();
-        this.heading();
+        this.update();
 
         return this;
     }
@@ -58,8 +55,7 @@ class Vector {
         this.x -= v0.x;
         this.y -= v0.y;
 
-        this.mag();
-        this.heading();
+        this.update();
 
         return this;
     }
@@ -68,8 +64,7 @@ class Vector {
         this.x -= s0;
         this.y -= s1;
 
-        this.mag();
-        this.heading();
+        this.update();
 
         return this;
     }
@@ -83,8 +78,7 @@ class Vector {
             this.y *= e;
         }
 
-        this.mag();
-        this.heading();
+        this.update();
 
         return this;
     }
@@ -98,8 +92,7 @@ class Vector {
             this.y = this.y / e;
         }
 
-        this.mag();
-        this.heading();
+        this.update();
 
         return this;
     }
@@ -164,5 +157,10 @@ class Vector {
         return (
             this.x == v.x && this.y == v.y && this.mag() == v.mag() && this.heading() == v.heading()
         );
+    }
+
+    update() {
+        this.mag();
+        this.heading();
     }
 }
