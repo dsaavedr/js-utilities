@@ -49,14 +49,19 @@ class Vector {
         return r;
     }
 
-    sub(v0, v1 = null) {
-        if (v0 instanceof Vector) {
-            this.x -= v0.x;
-            this.y -= v0.y;
-        } else {
-            this.x -= v0;
-            this.y -= v1;
-        }
+    sub(v0) {
+        this.x -= v0.x;
+        this.y -= v0.y;
+
+        this.mag();
+        this.heading();
+
+        return this;
+    }
+
+    sub(s0, s1) {
+        this.x -= v0;
+        this.y -= v1;
 
         this.mag();
         this.heading();
