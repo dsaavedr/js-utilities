@@ -25,7 +25,7 @@ class Vector {
     }
 
     static add(v0, v1) {
-        var r = new Vector(v0.x + v1.x, v0.y + v1.y);
+        const r = new Vector(v0.x + v1.x, v0.y + v1.y);
         return r;
     }
 
@@ -50,7 +50,7 @@ class Vector {
     }
 
     static sub(v0, v1) {
-        var r = new Vector(v0.x - v1.x, v0.y - v1.y);
+        const r = new Vector(v0.x - v1.x, v0.y - v1.y);
         return r;
     }
 
@@ -105,15 +105,17 @@ class Vector {
     }
 
     static dist(v1, v2) {
-        var d = Math.sqrt(Math.pow(v1.x - v2.x, 2) + Math.pow(v1.y - v2.y, 2));
+        const { sqrt, pow } = Math;
+        const d = sqrt(pow(v1.x - v2.x, 2) + pow(v1.y - v2.y, 2));
 
         return d;
     }
 
     mag() {
-        var i = Math.pow(this.x, 2) + Math.pow(this.y, 2);
+        const { sqrt, pow } = Math;
+        const i = sqrt(pow(this.x, 2) + pow(this.y, 2));
 
-        this.m = Math.sqrt(i);
+        this.m = i;
 
         return this.m;
     }
@@ -134,17 +136,17 @@ class Vector {
 
     static random() {
         // Random unit (m=1) vector
-        var ang = random(-Math.PI, Math.PI);
+        const ang = random(-Math.PI, Math.PI);
 
-        var x = Math.cos(ang);
-        var y = Math.sin(ang);
+        const x = Math.cos(ang);
+        const y = Math.sin(ang);
 
         return new Vector(x, y);
     }
 
     static fromAngle(a) {
-        var x = Math.cos(a);
-        var y = Math.sin(a);
+        const x = Math.cos(a);
+        const y = Math.sin(a);
 
         return new Vector(x, y);
     }
@@ -153,5 +155,14 @@ class Vector {
         if (this.m > max) {
             this.setMag(max);
         }
+    }
+
+    equals(v) {
+        if (!v instanceof Vector) {
+            return false;
+        }
+        return (
+            this.x == v.x && this.y == v.y && this.mag() == v.mag() && this.heading() == v.heading()
+        );
     }
 }
