@@ -11,7 +11,15 @@ class Pixel {
     }
 
     grayScale() {
-        const avg = this.avg();
+        const avg = Math.round(this.avg());
         return new Pixel(avg, avg, avg, this.a);
+    }
+
+    data() {
+        return [this.r, this.g, this.b, this.a];
+    }
+
+    luminance() {
+        return this.r * 0.2126 + this.g * 0.7152 + this.b * 0.0722;
     }
 }
