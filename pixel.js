@@ -7,7 +7,7 @@ class Pixel {
     }
 
     avg() {
-        return (r + g + b) / 3;
+        return (this.r + this.g + this.b) / 3;
     }
 
     grayScale() {
