@@ -1,5 +1,5 @@
 class Particle extends Point {
-    constructor(pos, vel, c = "white", r = 4) {
+    constructor(pos, vel, r = 4, c = "white") {
         super(pos, c, r);
 
         this.acc = new Vector(0, 0);
@@ -25,7 +25,11 @@ class Particle extends Point {
     }
 
     borders(t = 0) {
-        // t lets you choose between two ways of handling canvas borders
+        /* 
+        t lets you choose between two ways of handling canvas borders:
+            t == 0  => wrap (default)
+            else    => 'bounce' 
+        */
         if (t == 0) {
             if (this.pos.x > WIDTH) {
                 this.pos.x = 0;

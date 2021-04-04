@@ -28,16 +28,15 @@ class Vector {
         return r;
     }
 
-    add(v0) {
-        this.x += v0.x;
-        this.y += v0.y;
+    add(s0, s1 = null) {
+        if (s0 instanceof Vector) {
+            this.x += s0.x;
+            this.y += s0.y;
 
-        this.update();
+            this.update();
 
-        return this;
-    }
-
-    add(s0, s1) {
+            return this;
+        }
         this.x += s0;
         this.y += s1;
 
@@ -51,16 +50,15 @@ class Vector {
         return r;
     }
 
-    sub(v0) {
-        this.x -= v0.x;
-        this.y -= v0.y;
-
-        this.update();
-
-        return this;
-    }
-
     sub(s0, s1) {
+        if (s0 instanceof Vector) {
+            this.x -= s0.x;
+            this.y -= s0.y;
+
+            this.update();
+
+            return this;
+        }
         this.x -= s0;
         this.y -= s1;
 
