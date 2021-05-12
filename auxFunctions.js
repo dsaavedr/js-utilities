@@ -92,7 +92,7 @@ function HSVtoRGB(h, s, v) {
     }
     var string =
         "rgb(" + Math.round(r * 255) + "," + Math.round(g * 255) + "," + Math.round(b * 255) + ")";
-    return string;
+    return [r * 255, g * 255, b * 255];
 }
 
 function componentToHex(c) {
