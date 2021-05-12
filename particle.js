@@ -40,12 +40,14 @@ class Particle extends Point {
             } else if (this.pos.y < 0) {
                 this.pos.y = HEIGHT;
             }
+            this.pos.update();
         } else {
             if ((this.pos.x > WIDTH) | (this.pos.x < 0)) {
                 this.vel.x = -this.vel.x;
             } else if ((this.pos.y > HEIGHT) | (this.pos.y < 0)) {
                 this.vel.y = -this.vel.y;
             }
+            this.vel.update();
         }
     }
 
