@@ -1,6 +1,6 @@
 class Cell extends Rect {
     constructor(pos, size, live = true) {
-        super(pos, size);
+        super({ pos, size });
 
         this.live = live;
         this.next = live;

@@ -1,6 +1,6 @@
 class Particle extends Point {
-    constructor(pos, vel, r = 4, c = "white") {
-        super(pos, c, r);
+    constructor({ pos, vel, r = 4, c = "white" }) {
+        super({ pos, c, r });
 
         this.acc = new Vector(0, 0);
         this.vel = vel;

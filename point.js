@@ -1,5 +1,5 @@
 class Point {
-    constructor(pos, c = "white", r = 2) {
+    constructor({ pos, c = "white", r = 2 }) {
         this.pos = pos;
         this.c = c;
         this.r = r;
