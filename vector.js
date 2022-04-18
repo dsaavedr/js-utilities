@@ -50,7 +50,7 @@ class Vector {
         return r;
     }
 
-    sub(s0, s1) {
+    sub(s0, s1 = null) {
         if (s0 instanceof Vector) {
             this.x -= s0.x;
             this.y -= s0.y;
