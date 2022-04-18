@@ -19,6 +19,15 @@ class Pixel {
         return [this.r, this.g, this.b, this.a];
     }
 
+    update({ r = null, g = null, b = null, a = null }) {
+        if (r) this.r = r;
+        if (g) this.g = g;
+        if (b) this.b = b;
+        if (a) this.a = a;
+
+        return this;
+    }
+
     luminance() {
         // Formula taken from: https://stackoverflow.com/questions/596216/formula-to-determine-brightness-of-rgb-color
         return this.r * 0.2126 + this.g * 0.7152 + this.b * 0.0722;
