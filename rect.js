@@ -1,5 +1,5 @@
 class Rect {
-    constructor(pos, size, stroke = false, fill = true, c = "white") {
+    constructor({ pos, size, stroke = false, fill = true, c = "white" }) {
         this.pos = pos;
         this.size = size;
         this.stroke = stroke;
