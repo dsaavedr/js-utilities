@@ -19,11 +19,11 @@ class Pixel {
         return [this.r, this.g, this.b, this.a];
     }
 
-    update({ r = null, g = null, b = null, a = null }) {
-        if (r) this.r = r;
-        if (g) this.g = g;
-        if (b) this.b = b;
-        if (a) this.a = a;
+    update({ r = this.r, g = this.g, b = this.b, a = this.a }) {
+        this.r = r;
+        this.g = g;
+        this.b = b;
+        this.a = a;
 
         return this;
     }
