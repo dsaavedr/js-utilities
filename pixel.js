@@ -32,4 +32,13 @@ class Pixel {
         // Formula taken from: https://stackoverflow.com/questions/596216/formula-to-determine-brightness-of-rgb-color
         return this.r * 0.2126 + this.g * 0.7152 + this.b * 0.0722;
     }
+
+    getData() {
+        return {
+            r: this.r,
+            g: this.g,
+            b: this.b,
+            a: this.a
+        };
+    }
 }
