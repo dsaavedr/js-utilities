@@ -1,9 +1,13 @@
 class Particle extends Point {
-    constructor({ pos, vel, r = 4, c = "white" }) {
+    constructor({ pos, vel = null, r = 4, c = "white" }) {
         super({ pos, c, r });
 
         this.acc = new Vector(0, 0);
-        this.vel = vel;
+		if (!vel) {
+			this.vel = new Vector(0, 0);
+		} else {
+        	this.vel = vel;
+		}
         this.r = r;
         this.children = [];
         this.exploded = false;
